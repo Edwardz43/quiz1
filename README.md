@@ -5,7 +5,7 @@
 ### demo
 
 ```shell
-$ make
+$ make all
 ```
 
 ### clean

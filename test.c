@@ -2,6 +2,7 @@
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <sys/time.h>
 
 #include "list.h"
 
@@ -33,11 +34,21 @@ static void list_display(node_t *list)
     printf("\n");
 }
 
+long long current_timestamp()
+{
+    struct timeval tv;
+    // get current time
+    gettimeofday(&tv, NULL);
+    // calculate microseconds
+    long long microseconds = tv.tv_sec * 1000000 + tv.tv_usec;
+    return microseconds;
+}
+
 int main(int argc, char **argv)
 {
     size_t count = 20;
-
     node_t *list = NULL;
+    srand(current_timestamp());
     while (count--)
         list = list_make_node_t(list, rand() % 1024);
 
