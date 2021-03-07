@@ -27,13 +27,13 @@ void list_free(node_t **list)
     }
 }
 
-void list_add_node_t(node_t **list, node_t *node_t)
+void inline list_add_node_t(node_t **list, node_t *node_t)
 {
     node_t->next = *list;
     *list = node_t;
 }
 
-void list_concat(node_t **left, node_t *right)
+void inline list_concat(node_t **left, node_t *right)
 {
     while (*left)
         left = &((*left)->next);
